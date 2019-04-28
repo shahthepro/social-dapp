@@ -1,0 +1,16 @@
+{
+  "name": "social-dapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:shahthepro/social-dapp",
+  "author": "Shahul Hameed",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^7.0.0"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test truffle test --network test",
+    "deploy": "rm -rf client/src/contracts && truffle deploy",
+    "migrate": "rm -rf client/src/contracts && truffle migrate"
+  }
+}

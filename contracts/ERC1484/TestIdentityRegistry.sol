@@ -6,7 +6,7 @@ import "./AddressSet/AddressSet.sol";
 /// @title The ERC-1484 Identity Registry.
 /// @author Noah Zinsmeister
 /// @author Andy Chorlian
-contract IdentityRegistry is SignatureVerifier {
+contract TestIdentityRegistry is SignatureVerifier {
     using AddressSet for AddressSet.Set;
 
 

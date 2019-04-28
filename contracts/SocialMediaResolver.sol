@@ -3,7 +3,7 @@ pragma solidity ^0.5.0;
 import "./ERC1484/interfaces/IdentityRegistryInterface.sol";
 import "./ERC1484/SignatureVerifier.sol";
 
-contract Resolver is SignatureVerifier {
+contract SocialMediaResolver is SignatureVerifier {
     mapping(uint => string) internal googleAccounts;
 
     IdentityRegistryInterface identityRegistry;
