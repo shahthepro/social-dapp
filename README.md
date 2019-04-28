@@ -8,12 +8,17 @@ $ truffle deploy
 $ truffle migrate
 ```
 
-### 2. Start server
+### 2. Start redis
+```
+$ docker run -p 6379:6379 redis
+```
+
+### 3. Start server
 ```
 $ cd server && yarn start
 ```
 
-### 3. Start client
+### 4. Start client
 ```
 $ cd client && yarn start
 ```
