@@ -3,6 +3,9 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
+const https = require('https');
+const fs = require('fs');
+
 const cors = require('cors')
 const session = require('express-session')
 const bodyParser = require('body-parser')
@@ -48,6 +51,11 @@ app.get('*', (req, res) => {
 
 const port = PORT || 4000
 
-app.listen(port, () => {
+https.createServer({
+  key: fs.readFileSync('./security/key.pem'),
+  cert: fs.readFileSync('./security/cert.pem'),
+  passphrase: process.env.SSL_CERT_PASSPHRASE
+}, app)
+.listen(port, () => {
   console.log(`API server running on port ${port}`)
-})
+});

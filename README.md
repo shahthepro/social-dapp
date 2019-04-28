@@ -1,6 +1,15 @@
 # social-dapp
 
 ## Running the DApp on local machine
+### 0. Configuration
+* Add `socialdapp.dev` to your `/etc/hosts` file as loopback address
+* Generate SSL certificate:
+```
+$ cd server/security
+$ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
+```
+* Rename `sample.env` to `.env` and update values as necessary
+
 ### 1. Compile and deploy contracts
 ```
 $ truffle compile
