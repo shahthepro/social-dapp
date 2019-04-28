@@ -8,7 +8,8 @@
 $ cd server/security
 $ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
 ```
-* Rename `sample.env` to `.env` and update values as necessary
+* Disable StrictTransportSecurity in your browser. Eg: In firefox, change `network.stricttransportsecurity.preloadlist` value to `false` in `about:config`.
+* Rename `sample.env` to `.env` and update values as necessary in both `server` and `client` directories
 
 ### 1. Compile and deploy contracts
 ```

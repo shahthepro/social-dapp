@@ -31,7 +31,7 @@ const sessionConfig = {
   secret: SESSION_SECRET,
   resave: true,
   saveUninitialized: true,
-  ttl: 60000
+  ttl: 360000
 }
 
 app.use(session(sessionConfig))
@@ -40,14 +40,12 @@ app.use(cors({ origin: true, credentials: true }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('*', (req, res) => {
-  res
-    .status(200)
-    .send({
-      errors: [],
-      data: {}
-    })
+app.use(async (req, res, next) => {
+  req.redisSessionStore = sessionStore
+  next()
 })
+
+app.use(require('./controllers'))
 
 const port = PORT || 4000
 
